@@ -1,0 +1,290 @@
+
+
+:root {
+    --color-kanban-bg: #fdfdfd;
+    --color-kanban-column-bg: #f1f3f5;
+    --color-kanban-lane-border: #dee2e6;
+    --color-kanban-item-bg: #ffffff;
+    --color-kanban-item-border: #e9ecef;
+    --color-kanban-item-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --color-kanban-item-shadow-hover: 0 4px 6px rgba(0, 0, 0, 0.08);
+    --color-kanban-primary: #339af0;
+    --color-kanban-text-main: #212529;
+    --color-kanban-text-secondary: #868e96;
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --transition-speed: 0.2s;
+}
+
+.vjs-kanban-main {
+    display: flex;
+    height: 80vh;
+    width: 100%;
+    color: var(--color-kanban-text-main);
+}
+
+.vjs-kanban-container {
+    overflow-x:auto !important;
+    background-color: var(--color-kanban-bg);
+    display: flex;
+    flex-grow: 1;
+    gap: 1rem;
+}
+
+.vjs-group {
+    height:100%;
+    cursor:default;
+}
+
+.vjs-kanban-lane {
+    width: 320px;
+    background-color: var(--color-kanban-column-bg);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-kanban-lane-border);
+    z-index: 10;
+    box-sizing: border-box;
+    border-radius: var(--border-radius-md);
+    transition: background-color var(--transition-speed);
+}
+
+.vjs-kanban-lane-header {
+    background-color: transparent;
+    padding: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.vjs-kanban-lane-titlebar {
+    display:flex;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.vjs-kanban-lane-color {
+    width:12px;
+    height:12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.vjs-kanban-lane-title {
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.vjs-kanban-lane-description {
+    font-size: 0.875rem;
+    color: var(--color-kanban-text-secondary);
+    line-height: 1.4;
+}
+
+.vjs-kanban-lane [data-vjs-group-content] {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 0 12px 12px 12px;
+    flex-grow: 1;
+}
+
+.vjs-kanban-lane-footer {
+    margin-top:auto;
+    padding: 12px;
+    display: flex;
+}
+
+.vjs-kanban-lane-footer input {
+    width: 100%;
+    height: 2.25rem;
+    padding: 0 12px;
+    border: 1px solid var(--color-kanban-lane-border);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color var(--transition-speed);
+}
+
+.vjs-kanban-lane-footer input:focus {
+    border-color: var(--color-kanban-primary);
+}
+
+.vjs-kanban-lane-edit {
+    margin-left:auto;
+}
+
+.vjs-kanban-lane-edit:after {
+    cursor:pointer;
+    content:"✎";
+    color: var(--color-kanban-text-secondary);
+    transition: color var(--transition-speed);
+}
+
+.vjs-kanban-lane-edit:hover:after {
+    color: var(--color-kanban-primary);
+}
+
+.vjs-node {
+    left:unset !important;
+    top:unset !important;
+    position:relative;
+    cursor:move;
+}
+
+.vjs-kanban-item {
+    border: 1px solid var(--color-kanban-item-border);
+    background-color: var(--color-kanban-item-bg);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-sm);
+    padding: 8px;
+    z-index:11;
+    font-size: 13px;
+    min-height: 72px;
+    box-shadow: var(--color-kanban-item-shadow);
+    position: relative;
+    margin-bottom: 8px;
+    box-sizing:border-box;
+    height:auto;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed);
+}
+
+.vjs-kanban-item:hover {
+    box-shadow: var(--color-kanban-item-shadow-hover);
+    border-color: var(--color-kanban-primary);
+}
+
+.vjs-kanban-item-delete {
+    position:absolute;
+    top: 4px;
+    right: 4px;
+    cursor: pointer;
+    color: #adb5bd;
+    display:none;
+    font-size: 1.25rem;
+    line-height: 1;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+.vjs-selected-element .vjs-kanban-item-delete {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vjs-kanban-item-delete:hover {
+    color: #fa5252;
+}
+
+.vjs-kanban-item-delete:after {
+    content:"×";
+}
+
+.vjs-surface {
+    overflow:visible !important;
+    height:100%;
+}
+
+.vjs-surface-canvas {
+    transform: scale(1) !important;
+    height:100% !important;
+}
+
+.vjs-vertex-layer {
+    height:100% !important;
+}
+
+.vjs-selected-element {
+    outline:none;
+}
+
+.vjs-drag-active {
+    opacity: 0.6;
+}
+
+.vjs-node.vjs-selected-element .vjs-kanban-item, .vjs-group.vjs-selected-element {
+    outline: 2px solid var(--color-kanban-primary);
+    outline-offset: -2px;
+}
+
+/* --------------------------- panel on the right --------------------------------- */
+
+.vjs-kanban-rhs {
+    display:flex;
+    flex-direction: column;
+    flex-basis: 230px;
+    border-left: 1px solid var(--color-kanban-lane-border);
+    padding: 0 0.5rem;
+    background-color: #fff;
+}
+
+.vjs-kanban-controls, .vjs-controls {
+    padding: 16px;
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-kanban-column-bg);
+    position:relative;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--color-kanban-lane-border);
+}
+
+.vjs-kanban-add-column {
+    height: 36px;
+    width: 100%;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+/* ----------- inspector -------------------------------------- */
+
+.vjs-kanban-inspector {
+    display:flex;
+    flex-direction: column;
+    padding: 16px;
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-kanban-column-bg);
+    border: 1px solid var(--color-kanban-lane-border);
+}
+
+.vjs-kanban-inspector label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-kanban-text-secondary);
+    margin-bottom: 4px;
+}
+
+.vjs-kanban-inspector > * {
+    margin-bottom: 12px;
+}
+
+.vjs-kanban-inspector input, .vjs-kanban-inspector select, .vjs-kanban-inspector textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--color-kanban-lane-border);
+    border-radius: var(--border-radius-sm);
+    background-color: white;
+    font-family: inherit;
+    font-size: 0.875rem;
+    box-sizing: border-box;
+}
+
+.vjs-kanban-inspector input:focus {
+    border-color: var(--color-kanban-primary);
+    outline: none;
+}
+
+.vjs-kanban-inspector input[type="color"] {
+    height: 40px;
+    padding: 2px;
+}
