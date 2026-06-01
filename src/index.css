@@ -1,0 +1,6 @@
+@import '@visuallyjs/browser-ui/css/visuallyjs.css';
+@import './kanban.css';
+
+body * {
+    font-family:'Segoe UI', sans-serif;
+}

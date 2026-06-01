@@ -1,0 +1,25 @@
+{
+  "groups": [
+    {"id": "todo", "title": "Todo", "description":"Not yet started", "color":"#077407"},
+    {"id": "inprogress", "title": "In Progress", "description":"Work in progress", "color":"#e69119"},
+    {"id": "done", "title": "Done", "description":"Completed items", "color":"#C92508"}
+  ],
+  "nodes": [
+    {"id": "item1", "name": "Set up project repository", "group": "todo", "order":3, "description":"Initialize Git repo and push to GitHub"},
+    {"id": "item2", "name": "Configure CI/CD pipeline", "group": "todo", "order":2, "description":"Set up GitHub Actions for automated testing and deployment"},
+    {"id": "item3", "name": "Define database schema", "group":"todo", "order":1, "description":"Create Entity Relationship Diagram for the core features"},
+    {"id": "item4", "name": "User authentication", "group":"todo", "order":0, "description":"Implement login and registration functionality"},
+    {"id": "item5", "name": "Design system UI components", "group": "inprogress", "order":1, "description":"Use VisuallyJs to build apps, diagrams and charts"},
+    {"id": "item6", "name": "REST API development", "group":"inprogress", "order":2, "description":"Build endpoints for task management and user profiles"},
+    {"id": "item7", "name": "Frontend layout implementation", "group": "inprogress", "order":0, "description":"Develop the main dashboard grid and navigation bar"},
+    {"id": "item8", "name": "Initial project boilerplate", "group": "done", "order":0, "description":"Scaffold React app with Vite and VisuallyJs and install dependencies"},
+    {"id": "item9", "name": "Unit test coverage", "group":"todo", "order":4, "description":"Write Vitest tests for utility functions and core logic"},
+    {"id": "item10", "name": "Integrate third-party API", "group":"todo", "order":5, "description":"Connect to Stripe for payment processing"},
+    {"id": "item11", "name": "Performance optimization", "group":"todo", "order":7, "description":"Implement code splitting and image lazy loading"},
+    {"id": "item12", "name": "Accessibility audit", "group":"todo", "order":6, "description":"Ensure WCAG 2.1 compliance for all UI elements"},
+    {"id": "item13", "name": "Real-time notifications", "group":"todo", "order":10, "description":"Add WebSockets support for instant updates"},
+    {"id": "item14", "name": "Mobile responsiveness", "group":"todo", "order":9, "description":"Fix layout issues on mobile and tablet devices"},
+    {"id": "item15", "name": "End-to-end testing", "group":"todo", "order":8, "description":"Setup Playwright for automated browser testing"},
+    {"id": "item16", "name": "Bug: Fix memory leak", "group":"todo", "order":11, "description":"Investigate and resolve memory issues in the data grid"}
+  ]
+}
